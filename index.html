@@ -2,98 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Web-to-Case Form</title>
     <style>
-        /* Center the form */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
             margin: 0;
+            background-color: #f9f9f9;
             font-family: Arial, sans-serif;
         }
         form {
-            border: 1px solid #ccc;
+            background: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
             width: 100%;
         }
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
+            color: #333;
         }
-        input[type="text"],
-        textarea,
-        select {
-            width: 100%;
+        input, select, textarea {
+            width: calc(100% - 16px);
             padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
         textarea {
-            height: 100px;
             resize: vertical;
         }
         input[type="submit"] {
-            background-color: #007bff;
+            background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
         }
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dd2000000VyxZ" method="POST">
-        <input type="hidden" name="orgid" value="00Dd2000000VyxZ">
-        <input type="hidden" name="retURL" value="https://creative-raccoon-o5ut4p-dev-ed.trailblaze.lightning.force.com/lightning/o/Case/list?filterName=00Bd2000000eys0EAA">
 
-        <!-- Optional debugging elements -->
-        <!-- <input type="hidden" name="debug" value="1"> -->
-        <!-- <input type="hidden" name="debugEmail" value="shree.kesarwani@gmail.com"> -->
-        
-        <label for="name">Contact Name</label>
-        <input id="name" maxlength="80" name="name" size="20" type="text" required>
-        
-        <label for="email">Email</label>
-        <input id="email" maxlength="80" name="email" size="20" type="text" required>
-        
-        <label for="phone">Phone</label>
-        <input id="phone" maxlength="40" name="phone" size="20" type="text">
-        
-        <label for="subject">Subject</label>
-        <input id="subject" maxlength="80" name="subject" size="20" type="text" required>
-        
-        <label for="description">Description</label>
-        <textarea id="description" name="description"></textarea>
-        
-        <!-- Hidden field for default priority value -->
-        <input type="hidden" id="priority" name="priority" value="High">
-        
-        <label for="reason">Case Reason</label>
-        <select id="reason" name="reason" required>
-            <option value="">--None--</option>
-            <option value="Installation">Installation</option>
-            <option value="Equipment Complexity">Equipment Complexity</option>
-            <option value="Performance">Performance</option>
-            <option value="Breakdown">Breakdown</option>
-            <option value="Equipment Design">Equipment Design</option>
-            <option value="Feedback">Feedback</option>
-            <option value="Other">Other</option>
-        </select>
-        
-        <input type="hidden" id="external" name="external" value="1">
-        
-        <input type="submit" name="submit" value="Submit">
-    </form>
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DWU000007IEgP" method="POST">
+    <input type="hidden" name="orgid" value="00DWU000007IEgP">
+    <input type="hidden" name="retURL" value="https://shreetika2207.github.io/SmithsTask/">
+    
+    <!-- Optional debugging elements -->
+    <!-- <input type="hidden" name="debug" value=1> -->
+    <!-- <input type="hidden" name="debugEmail" value="shree.kesarwani@gmail.com"> -->
+    
+    <label for="name">Contact Name</label>
+    <input id="name" maxlength="80" name="name" size="20" type="text" required><br>
+
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" size="20" type="email" required><br>
+
+    <label for="phone">Phone</label>
+    <input id="phone" maxlength="40" name="phone" size="20" type="tel" required><br>
+
+    <label for="subject">Subject</label>
+    <input id="subject" maxlength="80" name="subject" size="20" type="text" required><br>
+
+    <label for="description">Description</label>
+    <textarea name="description" rows="4" required></textarea><br>
+
+    <!-- Priority field is hidden but set to High by default -->
+    <input type="hidden" id="priority" name="priority" value="High">
+
+    <label for="reason">Case Reason</label>
+    <select id="reason" name="reason" required>
+        <option value="">--None--</option>
+        <option value="Installation">Installation</option>
+        <option value="Equipment Complexity">Equipment Complexity</option>
+        <option value="Performance">Performance</option>
+        <option value="Breakdown">Breakdown</option>
+        <option value="Equipment Design">Equipment Design</option>
+        <option value="Feedback">Feedback</option>
+        <option value="Other">Other</option>
+    </select><br>
+
+    <input type="submit" name="submit" value="Submit">
+</form>
+
 </body>
 </html>
